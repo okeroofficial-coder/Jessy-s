@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessy's — Sea Moss & Sauerkraut</title>
+<meta name="description" content="Raw sea moss gel and live-cultured sauerkraut, hand-made in small batches in Mombasa, Kenya. Order on WhatsApp, delivered fresh.">
+<meta property="og:title" content="Jessy's — Sea Moss & Sauerkraut">
+<meta property="og:description" content="Raw sea moss gel and live-cultured sauerkraut, hand-made in Mombasa. Order on WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Jost:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#2A2722;
+    --alabaster:#F8F5EE;
+    --rawcream:#EFE7D6;
+    --navy:#0E2B3A;
+    --navy-2:#123347;
+    --seafoam:#7FD8BE;
+    --sandgold:#D2B57F;
+    --sage:#8FA378;
+    --sage-2:#7A9166;
+    --ochre:#C8902F;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--alabaster);color:var(--charcoal);font-family:'Jost',sans-serif;overflow-x:hidden;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{font-family:'Plus Jakarta Sans',monospace;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;opacity:0.75;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;line-height:1.05;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1.1rem clamp(1.2rem,4vw,3rem);background:rgba(42,39,34,0.94);backdrop-filter:blur(6px);color:var(--alabaster);}
+  .logo{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:1.4rem;}
+  .nav-links{display:flex;gap:2rem;font-size:0.86rem;}
+  .nav-links a{opacity:0.85;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;color:var(--sandgold);}
+  .nav-cta{background:#3DBE5E;color:#fff;padding:0.5rem 1.1rem;border-radius:2px;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:0.4rem;}
+  @media (max-width:780px){ .nav-links{display:none;} }
+
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--alabaster);overflow:hidden;background:linear-gradient(100deg, var(--navy) 0%, var(--navy) 42%, var(--sage-2) 58%, var(--sage-2) 100%);}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 18% 30%, rgba(127,216,190,0.35), transparent 55%), radial-gradient(circle at 84% 70%, rgba(200,144,47,0.35), transparent 55%);pointer-events:none;}
+  .bubble{position:absolute;border-radius:50%;background:rgba(248,245,238,0.18);animation:rise linear infinite;}
+  @keyframes rise{0%{transform:translateY(0) scale(0.8); opacity:0;}10%{opacity:0.7;}90%{opacity:0.5;}100%{transform:translateY(-90vh) scale(1.1); opacity:0;}}
+  .hero-content{position:relative;z-index:2;max-width:880px;padding:0 1.5rem;}
+  .hero .eyebrow{color:var(--sandgold);margin-bottom:1.1rem;display:block;}
+  .hero h1{font-size:clamp(2.5rem,6.6vw,4.8rem);margin-bottom:1.3rem;}
+  .hero h1 em{font-style:italic;color:var(--seafoam);}
+  .hero p.sub{font-size:clamp(1rem,2vw,1.2rem);max-width:560px;margin:0 auto 2.2rem;opacity:0.92;}
+  .hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.7rem;border-radius:2px;font-weight:600;font-size:0.92rem;transition:transform .2s, box-shadow .2s;border:1.5px solid transparent;}
+  .btn-primary{background:#3DBE5E;color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(61,190,94,0.4);}
+  .btn-ghost{border-color:rgba(248,245,238,0.5);color:var(--alabaster);}
+  .btn-ghost:hover{border-color:var(--alabaster);transform:translateY(-2px);}
+  .hero-sides{position:absolute;bottom:2.2rem;left:0;right:0;display:flex;justify-content:space-between;padding:0 clamp(1.5rem,6vw,5rem);font-family:'Space Mono',monospace;font-size:0.72rem;color:rgba(248,245,238,0.7);z-index:2;}
+  @media (max-width:600px){.hero-sides{display:none;}}
+
+  section{padding:clamp(3.6rem,8vw,6.5rem) clamp(1.4rem,6vw,5rem);}
+  .section-head{max-width:680px;margin:0 auto 2.6rem;text-align:center;}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);}
+
+  .seamoss{background:var(--navy);color:var(--alabaster);}
+  .seamoss .eyebrow{color:var(--seafoam);}
+  .spotlight{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:2.5rem;align-items:center;}
+  @media (max-width:760px){.spotlight{grid-template-columns:1fr;}}
+  .spot-art{background:rgba(127,216,190,0.08);border:1px solid rgba(127,216,190,0.25);border-radius:4px;padding:0;display:flex;align-items:center;justify-content:center;height:320px;overflow:hidden;}
+  .spot-art svg{width:80%;height:80%;}
+  .spot-art img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
+  .spot-copy p{opacity:0.88;line-height:1.65;margin-bottom:1rem;font-size:0.98rem;}
+  .tag-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.2rem;}
+  .tag{font-family:'Space Mono',monospace;font-size:0.7rem;border:1px solid rgba(248,245,238,0.3);padding:0.3rem 0.7rem;border-radius:20px;opacity:0.85;}
+
+  .product-row{display:flex;gap:1.4rem;margin-top:2.4rem;flex-wrap:wrap;}
+  .card{flex:1 1 240px;border-radius:3px;padding:1.5rem;transition:transform .25s;display:flex;flex-direction:column;}
+  .card:hover{transform:translateY(-5px);}
+  .seamoss .card{background:rgba(248,245,238,0.06);border:1px solid rgba(127,216,190,0.3);}
+  .card .batch{font-family:'Space Mono',monospace;font-size:0.66rem;opacity:0.6;margin-bottom:0.4rem;}
+  .card h3{font-size:1.15rem;margin-bottom:0.4rem;font-family:'Fraunces',serif;}
+  .card p{font-size:0.85rem;opacity:0.82;line-height:1.5;flex-grow:1;margin-bottom:1rem;}
+  .card-foot{display:flex;justify-content:space-between;align-items:center;}
+  .price{font-family:'Space Mono',monospace;font-weight:700;}
+  .seamoss .price{color:var(--sandgold);}
+  .add-btn{font-size:0.76rem;font-weight:600;padding:0.42rem 0.85rem;border-radius:2px;cursor:pointer;background:transparent;transition:background .2s, color .2s;}
+  .seamoss .add-btn{border:1px solid var(--sandgold);color:var(--sandgold);}
+  .seamoss .add-btn:hover, .seamoss .add-btn.added{background:var(--sandgold);color:var(--navy);}
+
+  .kraut{background:var(--rawcream);color:var(--charcoal);}
+  .kraut .eyebrow{color:var(--sage-2);}
+  .kraut .card{background:#fff;border:1px solid rgba(200,144,47,0.35);box-shadow:0 1px 0 rgba(0,0,0,0.02);}
+  .kraut .price{color:var(--ochre);}
+  .kraut .add-btn{border:1px solid var(--ochre);color:var(--ochre);}
+  .kraut .add-btn:hover, .kraut .add-btn.added{background:var(--ochre);color:#fff;}
+  .kraut .spot-art{background:linear-gradient(180deg, rgba(200,144,47,0.08), rgba(239,231,214,0.28));border:1px solid rgba(200,144,47,0.35);height:min(470px,55vw);}
+  .kraut .spot-art img{width:auto;height:100%;max-width:92%;object-fit:contain;border-radius:4px;mix-blend-mode:multiply;filter:brightness(1.03);}
+
+  .process{background:var(--alabaster);}
+  .timeline{max-width:760px;margin:0 auto;position:relative;}
+  .timeline::before{content:'';position:absolute;left:27px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom, var(--navy), var(--ochre));}
+  @media (max-width:560px){.timeline::before{left:17px;}}
+  .step{position:relative;padding-left:68px;margin-bottom:2.2rem;}
+  @media (max-width:560px){.step{padding-left:46px;}}
+  .step:last-child{margin-bottom:0;}
+  .step-num{position:absolute;left:0;top:0;width:54px;height:54px;border-radius:50%;background:var(--charcoal);color:var(--alabaster);font-family:'Space Mono',monospace;font-weight:700;font-size:0.9rem;display:flex;align-items:center;justify-content:center;}
+  @media (max-width:560px){.step-num{width:34px;height:34px;font-size:0.7rem;}}
+  .step h3{font-size:1.15rem;margin-bottom:0.3rem;}
+  .step p{font-size:0.9rem;opacity:0.78;line-height:1.6;max-width:520px;}
+  .step time{font-family:'Space Mono',monospace;font-size:0.68rem;opacity:0.5;display:block;margin-top:0.4rem;}
+
+  .trust{background:var(--charcoal);color:var(--alabaster);}
+  .trust .eyebrow{color:var(--sandgold);}
+  .trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem;max-width:1100px;margin:0 auto;}
+  .trust-card{background:rgba(248,245,238,0.05);border-left:3px solid var(--ochre);padding:1.4rem 1.5rem;border-radius:2px;}
+  .trust-card h3{font-size:1.02rem;margin-bottom:0.4rem;font-family:'Fraunces',serif;}
+  .trust-card p{font-size:0.86rem;opacity:0.82;line-height:1.55;}
+
+  .order{background:linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);color:var(--alabaster);text-align:center;}
+  .order h2{font-size:clamp(1.9rem,3.8vw,2.6rem);margin-bottom:1rem;}
+  .order p{max-width:540px;margin:0 auto 1.8rem;opacity:0.9;font-size:1rem;line-height:1.6;}
+  .ticker{display:inline-flex;align-items:center;gap:0.6rem;font-family:'Space Mono',monospace;font-size:0.76rem;background:rgba(248,245,238,0.1);padding:0.55rem 1.1rem;border-radius:20px;margin-bottom:1.8rem;}
+  .dot{width:7px;height:7px;border-radius:50%;background:#3DBE5E;animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+  .cart-fab{position:fixed;bottom:1.4rem;right:1.4rem;z-index:60;background:#3DBE5E;color:#fff;border-radius:30px;padding:0.8rem 1.2rem;display:flex;align-items:center;gap:0.6rem;font-weight:600;font-size:0.88rem;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,0.25);transition:transform .2s;}
+  .cart-fab:hover{transform:translateY(-2px);}
+  .cart-badge{background:#fff;color:#188037;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.74rem;font-weight:700;}
+  .cart-panel{position:fixed;bottom:5.4rem;right:1.4rem;z-index:60;width:min(320px,86vw);background:#fff;color:var(--charcoal);border-radius:8px;box-shadow:0 14px 40px rgba(0,0,0,0.25);padding:1.2rem;display:none;max-height:60vh;overflow-y:auto;}
+  .cart-panel.open{display:block;}
+  .cart-panel h4{font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:0.8rem;}
+  .cart-item{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;padding:0.5rem 0;border-bottom:1px solid #eee;}
+  .cart-item .qty-ctrl{display:flex;align-items:center;gap:0.4rem;}
+  .qty-ctrl button{width:22px;height:22px;border:1px solid #ccc;background:#fafafa;border-radius:50%;cursor:pointer;font-size:0.85rem;line-height:1;}
+  .cart-total{display:flex;justify-content:space-between;font-weight:700;margin-top:0.8rem;padding-top:0.8rem;border-top:2px solid var(--charcoal);font-size:0.95rem;}
+  .cart-empty{font-size:0.85rem;opacity:0.6;text-align:center;padding:1rem 0;}
+  .cart-checkout{display:block;width:100%;margin-top:1rem;text-align:center;background:#3DBE5E;color:#fff;padding:0.7rem;border-radius:4px;font-weight:600;font-size:0.88rem;}
+
+  footer{background:var(--charcoal);color:rgba(248,245,238,0.7);padding:2.4rem clamp(1.4rem,6vw,5rem) 1.4rem;font-size:0.82rem;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;max-width:1180px;margin:0 auto 1.4rem;}
+  .foot-grid h4{font-family:'Fraunces',serif;font-style:italic;color:var(--sandgold);font-size:1.15rem;margin-bottom:0.5rem;}
+  .foot-links a{display:block;margin-bottom:0.4rem;opacity:0.8;}
+  .foot-links a:hover{opacity:1;color:var(--sandgold);}
+  .foot-bottom{border-top:1px solid rgba(248,245,238,0.12);padding-top:1.1rem;text-align:center;font-family:'Space Mono',monospace;font-size:0.68rem;opacity:0.55;max-width:1180px;margin:0 auto;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Jessy's</div>
+  <div class="nav-links">
+    <a href="#seamoss">Sea Moss</a>
+    <a href="#kraut">Sauerkraut</a>
+    <a href="#process">Process</a>
+    <a href="#order">Order</a>
+  </div>
+  <a href="#order" class="nav-cta">💬 Order on WhatsApp</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">Mombasa, Kenya · Small Batch</span>
+    <h1>Ocean on one side.<br><em>Ferment</em> on the other.</h1>
+    <p class="sub">Jessy's makes raw sea moss gel and live-cultured sauerkraut by hand on the Kenyan coast — no shortcuts, no preservatives, just tide and time.</p>
+    <div class="hero-ctas">
+      <a href="#seamoss" class="btn btn-ghost">See the jars</a>
+      <a href="#order" class="btn btn-primary">💬 Order on WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-sides">
+    <span>SEA MOSS — SUN-DRIED</span>
+    <span>SAUERKRAUT — FERMENTED</span>
+  </div>
+</section>
+
+<section class="seamoss" id="seamoss">
+  <div class="section-head reveal">
+    <span class="eyebrow">From the ocean</span>
+    <h2>Raw Sea Moss Gel</h2>
+  </div>
+  <div class="spotlight reveal">
+    <div class="spot-art">
+      <img src="seamoss-spot-art.png" alt="Raw sea moss gel" />
+    </div>
+    <div class="spot-copy">
+      <p>Harvested along the Kenyan coast, sun-dried, then soaked, washed, and blended into a smooth, neutral-tasting gel. It's the same plant coastal communities have used for generations — we just made it easy to keep in your fridge.</p>
+      <p>Stir a spoonful into smoothies, juice, or tea. One jar lasts roughly two to three weeks refrigerated.</p>
+      <div class="tag-row">
+        <span class="tag">92 trace minerals</span>
+        <span class="tag">vegan</span>
+        <span class="tag">no additives</span>
+      </div>
+    </div>
+  </div>
+  <div class="product-row reveal">
+    <div class="card">
+      <div class="batch"></div>
+      <h3>Sea Moss Gel — 500g</h3>
+      <p>Smooth, neutral-tasting gel. Keep refrigerated, best used within 2–3 weeks.</p>
+      <div class="card-foot">
+        <span class="price">KSh 900</span>
+        <button class="add-btn" onclick="addToCart('sm500','Sea Moss Gel 500g',900,this)">Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="batch"></div>
+      <h3>Sea Moss Gel — 1kg</h3>
+      <p>Our best value jar for regular drinkers. Same batch, same gel.</p>
+      <div class="card-foot">
+        <span class="price">KSh 1,600</span>
+        <button class="add-btn" onclick="addToCart('sm1000','Sea Moss Gel 1kg',1600,this)">Add</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kraut" id="kraut">
+  <div class="section-head reveal">
+    <span class="eyebrow">From the ferment</span>
+    <h2>Live-Cultured Sauerkraut</h2>
+  </div>
+  <div class="spotlight reveal">
+    <div class="spot-art">
+      <img src="Sauerkraut final.png" alt="Sauerkraut jar" />
+    </div>
+    <div class="spot-copy">
+      <p>Cabbage, salt, time — that's the whole ingredient list. We hand-shred, pack, and let nature do the rest for three weeks until it's properly sour and alive with cultures, never heated or pasteurized.</p>
+      <p>Keep refrigerated once opened; unopened jars hold for about a month from the jarring date on the label.</p>
+      <div class="tag-row">
+        <span class="tag">live cultures</span>
+        <span class="tag">raw, unpasteurized</span>
+        <span class="tag">2 ingredients</span>
+      </div>
+    </div>
+  </div>
+  <div class="product-row reveal">
+    <div class="card">
+      <div class="batch"></div>
+      <h3>Classic Sauerkraut — 400g</h3>
+      <p>Hand-shredded cabbage, fermented, properly tangy and crunchy.</p>
+      <div class="card-foot">
+        <span class="price">KSh 650</span>
+        <button class="add-btn" onclick="addToCart('sk400','Classic Sauerkraut 400g',650,this)">Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="batch"></div>
+      <h3>Chili-Ginger Kraut — 400g</h3>
+      <p>Our classic ferment with fresh ginger and bird's eye chili folded in.</p>
+      <div class="card-foot">
+        <span class="price">KSh 750</span>
+        <button class="add-btn" onclick="addToCart('skcg400','Chili-Ginger Kraut 400g',750,this)">Add</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="section-head reveal">
+    <span class="eyebrow">How it's actually made</span>
+    <h2>From harvest to your fridge</h2>
+  </div>
+  <div class="timeline reveal">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Harvest & shred</h3>
+      <p>Sea moss is sun-dried on the coast; cabbage is hand-shredded the same morning we ferment it. Nothing sits in a warehouse.</p>
+    
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Soak or salt</h3>
+      <p>Moss is soaked and washed until soft; cabbage is layered with salt and packed tight to push out air.</p>
+    
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Blend or ferment</h3>
+      <p>Moss is blended into gel and chilled same-day. Kraut is left to ferment under weight, untouched, for three weeks.</p>
+    
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Taste, jar, label</h3>
+      <p>Every batch is tasted before it's jarred.</p>
+    
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="section-head reveal">
+    <span class="eyebrow">Good to know before you order</span>
+    <h2>The practical bits</h2>
+  </div>
+  <div class="trust-grid reveal">
+    <div class="trust-card">
+      <h3>Delivery</h3>
+      <p>Same-day delivery within Mombasa for orders placed. Countrywide delivery, 1–3 days, cost shared on WhatsApp before you confirm.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Payment</h3>
+      <p>M-Pesa only for now — we'll send you a Till/Send Money number on WhatsApp once your order is confirmed.</p>
+    </div>
+    <div class="trust-card">
+      <h3>Storage & shelf life</h3>
+      <p>Keep all jars refrigerated. Sea moss gel: best within 2–3 weeks. Sauerkraut: unopened, about a month from the jarring date; finish within 2 weeks once opened.</p>
+    </div>
+    <div class="trust-card">
+      <h3>If something's off</h3>
+      <p>If a jar arrives damaged or doesn't taste right, message us a photo on WhatsApp within 24 hours of delivery.</p>
+    </div>
+  </div>
+  <p style="max-width:680px;margin:2.4rem auto 0;text-align:center;font-size:0.78rem;opacity:0.7;font-style:italic;">Jessy's products are traditional wellness foods, not medicine. They're not intended to diagnose, treat, or cure any condition — talk to a doctor about any health concerns.</p>
+</section>
+
+<section class="order" id="order">
+
+  <h2>Ready for your next jar?</h2>
+  <p>Add what you want above, then tap the cart in the corner — it builds your order into a WhatsApp message so we can confirm it the same day.</p>
+  <a href="#" id="order-cta" class="btn btn-primary" onclick="openCart();return false;">💬 Build my order</a>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <h4>Jessy's</h4>
+      <p style="max-width:260px;opacity:0.7;">Sea moss and sauerkraut, made by hand on the Kenyan coast.</p>
+    </div>
+    <div class="foot-links">
+      <a href="#seamoss">Sea Moss</a>
+      <a href="#kraut">Sauerkraut</a>
+      <a href="#process">Process</a>
+    </div>
+    <div class="foot-links">
+      <a href="https://wa.me/254756786886" target="_blank">💬 Order on WhatsApp</a>
+      <span style="opacity:0.6;display:block;margin-top:0.3rem;">+254 756 786 886</span>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 JESSY'S · MOMBASA, KENYA · ALL JARS HAND-LABELED</div>
+</footer>
+
+<div class="cart-fab" onclick="toggleCart()">
+  🛒 <span id="fab-text">Cart</span> <span class="cart-badge" id="cart-count">0</span>
+</div>
+<div class="cart-panel" id="cart-panel">
+  <h4>Your order</h4>
+  <div id="cart-items"><div class="cart-empty">No items yet — add a jar above.</div></div>
+  <div id="cart-total-row" style="display:none;" class="cart-total"><span>Total</span><span id="cart-total">KSh 0</span></div>
+  <a href="#" id="checkout-link" target="_blank" class="cart-checkout" style="display:none;">Send order on WhatsApp</a>
+</div>
+
+<script>
+  const WHATSAPP_NUMBER = "254756786886";
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  },{threshold:0.15});
+  reveals.forEach(el=>obs.observe(el));
+
+  const hero = document.querySelector('.hero');
+  for(let i=0;i<14;i++){
+    const b = document.createElement('div');
+    b.className='bubble';
+    const size = 4 + Math.random()*10;
+    b.style.width = size+'px';
+    b.style.height = size+'px';
+    b.style.left = Math.random()*100+'%';
+    b.style.bottom = '-20px';
+    b.style.animationDuration = (6+Math.random()*8)+'s';
+    b.style.animationDelay = (Math.random()*10)+'s';
+    hero.appendChild(b);
+  }
+
+  let cart = {};
+
+  function addToCart(id, name, price, btn){
+    if(!cart[id]) cart[id] = {name, price, qty:0};
+    cart[id].qty += 1;
+    renderCart();
+    if(btn){
+      const original = btn.textContent;
+      btn.textContent = 'Added ✓';
+      btn.classList.add('added');
+      setTimeout(()=>{ btn.textContent = original; btn.classList.remove('added'); }, 1200);
+    }
+  }
+
+  function changeQty(id, delta){
+    if(!cart[id]) return;
+    cart[id].qty += delta;
+    if(cart[id].qty <= 0) delete cart[id];
+    renderCart();
+  }
+
+  function renderCart(){
+    const itemsEl = document.getElementById('cart-items');
+    const ids = Object.keys(cart);
+    let count = 0, total = 0;
+    if(ids.length === 0){
+      itemsEl.innerHTML = '<div class="cart-empty">No items yet — add a jar above.</div>';
+      document.getElementById('cart-total-row').style.display='none';
+      document.getElementById('checkout-link').style.display='none';
+    } else {
+      itemsEl.innerHTML = ids.map(id=>{
+        const it = cart[id];
+        count += it.qty;
+        total += it.qty * it.price;
+        return `<div class="cart-item">
+          <span>${it.name}</span>
+          <div class="qty-ctrl">
+            <button onclick="changeQty('${id}',-1)">−</button>
+            <span>${it.qty}</span>
+            <button onclick="changeQty('${id}',1)">+</button>
+          </div>
+        </div>`;
+      }).join('');
+      document.getElementById('cart-total-row').style.display='flex';
+      document.getElementById('cart-total').textContent = 'KSh ' + total.toLocaleString();
+
+      let msg = "Hi Jessy's! I'd like to order:\n";
+      ids.forEach(id=>{
+        const it = cart[id];
+        msg += `• ${it.qty} x ${it.name} — KSh ${(it.qty*it.price).toLocaleString()}\n`;
+      });
+      msg += `Total: KSh ${total.toLocaleString()}\n\nMy name + delivery area: `;
+      const link = document.getElementById('checkout-link');
+      link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      link.style.display = 'block';
+    }
+    document.getElementById('cart-count').textContent = count;
+  }
+
+  function toggleCart(){
+    document.getElementById('cart-panel').classList.toggle('open');
+  }
+  function openCart(){
+    document.getElementById('cart-panel').classList.add('open');
+    document.getElementById('cart-panel').scrollIntoView({behavior:'smooth', block:'center'});
+  }
+</script>
+
+</body>
+</html>
+ 

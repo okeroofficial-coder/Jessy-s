@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -156,7 +156,7 @@
     <a href="#process">Process</a>
     <a href="#order">Order</a>
   </div>
-  <a href="#order" class="nav-cta">💬 Order on WhatsApp</a>
+  <a href="#" id="nav-cta-link" class="nav-cta" target="_blank">💬 Order on WhatsApp</a>
 </nav>
 
 <section class="hero">
@@ -166,7 +166,7 @@
     <p class="sub">Jessy's makes raw sea moss gel and live-cultured sauerkraut by hand on the Kenyan coast — no shortcuts, no preservatives, just tide and time.</p>
     <div class="hero-ctas">
       <a href="#seamoss" class="btn btn-ghost">See the jars</a>
-      <a href="#order" class="btn btn-primary">💬 Order on WhatsApp</a>
+      <a href="#" id="hero-cta-link" class="btn btn-primary" target="_blank">💬 Order on WhatsApp</a>
     </div>
   </div>
   <div class="hero-sides">
@@ -186,7 +186,7 @@
     </div>
     <div class="spot-copy">
       <p>Harvested along the Kenyan coast, sun-dried, then soaked, washed, and blended into a smooth, neutral-tasting gel. It's the same plant coastal communities have used for generations — we just made it easy to keep in your fridge.</p>
-      <p>Stir a spoonful into smoothies, juice, or tea. A jar lasts roughly 6 months refrigerated and a month once opened for usage.</p>
+      <p>Stir a spoonful into smoothies, juice, or tea. A jar lasts roughly 6 months refrigerated, and about a month once opened.</p>
       <div class="tag-row">
         <span class="tag">92 trace minerals</span>
         <span class="tag">vegan</span>
@@ -207,10 +207,10 @@
     <div class="card">
       <div class="batch"></div>
       <h3>Tamarind-baobab powder Sea Moss Gel — 1kg</h3>
-      <p>Our best value jar for regular drinkers. Same batch, same gel,some extra tangy flavour.</p>
+      <p>Our best value jar for regular drinkers. Same batch, same gel, some extra tangy flavour.</p>
       <div class="card-foot">
         <span class="price">KSh 1,500</span>
-        <button class="add-btn" onclick="addToCart('sm1000','Sea Moss Gel 1kg',1500,this)">Add</button>
+        <button class="add-btn" onclick="addToCart('sm1000tb','Sea Moss Gel 1kg (Tamarind-Baobab)',1500,this)">Add</button>
       </div>
     </div>
   </div>
@@ -227,7 +227,7 @@
     </div>
     <div class="spot-copy">
       <p>Cabbage, salt, time — that's the whole ingredient list. We hand-shred, pack, and let nature do the rest for three weeks until it's properly sour and alive with cultures, never heated or pasteurized.</p>
-      <p>Can be optionally refrigerated ;opened jars last about a month ;unopened jars hold for about 6 months from the jarring date.</p>
+      <p>Can be refrigerated; opened jars last about a month, unopened jars hold for about 3 months from the jarring date.</p>
       <div class="tag-row">
         <span class="tag">live cultures</span>
         <span class="tag">raw, unpasteurized</span>
@@ -306,7 +306,7 @@
     </div>
     <div class="trust-card">
       <h3>Storage & shelf life</h3>
-      <p>Keep all jars refrigerated. Sea moss gel:unopened,about 3 months; best within 2–4 weeks once opened. Sauerkraut: unopened, about 6 months from the jarring date; finish within 4 weeks once opened.</p>
+      <p>Keep all jars refrigerated. Sea moss gel: unopened, about 6 months; best within a month once opened. Sauerkraut: unopened, about 3 months from the jarring date; finish within a month once opened.</p>
     </div>
     <div class="trust-card">
       <h3>If something's off</h3>
@@ -396,6 +396,38 @@
     renderCart();
   }
 
+  // Builds the WhatsApp message text from whatever is currently in the cart.
+  // If the cart is empty, falls back to a generic order opener.
+  function buildOrderMessage(){
+    const ids = Object.keys(cart);
+    if(ids.length === 0){
+      return "Hi Jessy's! I'd like to place an order. ";
+    }
+    let total = 0;
+    let msg = "Hi Jessy's! I'd like to order:\n";
+    ids.forEach(id=>{
+      const it = cart[id];
+      total += it.qty * it.price;
+      msg += `• ${it.qty} x ${it.name} — KSh ${(it.qty*it.price).toLocaleString()}\n`;
+    });
+    msg += `Total: KSh ${total.toLocaleString()}\n\nMy name + delivery area: `;
+    return msg;
+  }
+
+  function buildOrderHref(){
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildOrderMessage())}`;
+  }
+
+  // Keeps the nav and hero WhatsApp buttons pointed at a live link
+  // that always reflects the current cart contents.
+  function updateOrderLinks(){
+    const href = buildOrderHref();
+    const navBtn = document.getElementById('nav-cta-link');
+    const heroBtn = document.getElementById('hero-cta-link');
+    if(navBtn) navBtn.href = href;
+    if(heroBtn) heroBtn.href = href;
+  }
+
   function renderCart(){
     const itemsEl = document.getElementById('cart-items');
     const ids = Object.keys(cart);
@@ -421,17 +453,12 @@
       document.getElementById('cart-total-row').style.display='flex';
       document.getElementById('cart-total').textContent = 'KSh ' + total.toLocaleString();
 
-      let msg = "Hi Jessy's! I'd like to order:\n";
-      ids.forEach(id=>{
-        const it = cart[id];
-        msg += `• ${it.qty} x ${it.name} — KSh ${(it.qty*it.price).toLocaleString()}\n`;
-      });
-      msg += `Total: KSh ${total.toLocaleString()}\n\nMy name + delivery area: `;
       const link = document.getElementById('checkout-link');
-      link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      link.href = buildOrderHref();
       link.style.display = 'block';
     }
     document.getElementById('cart-count').textContent = count;
+    updateOrderLinks();
   }
 
   function toggleCart(){
@@ -441,8 +468,10 @@
     document.getElementById('cart-panel').classList.add('open');
     document.getElementById('cart-panel').scrollIntoView({behavior:'smooth', block:'center'});
   }
+
+  // Set initial WhatsApp links on page load (cart starts empty).
+  renderCart();
 </script>
 
 </body>
 </html>
- 
